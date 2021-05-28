@@ -28,8 +28,8 @@
           <input
             class="uk-input uk-form-large"
             type="text"
-          placeholder="CPF"
-          mask="###.###.###-##"
+            placeholder="CPF"
+            mask="###.###.###-##"
           >
         </div>
         <div
@@ -44,10 +44,11 @@
         <div
           class="uk-margin uk-text-right"
         >
-          <button
+          <a
+          [routerLink]="['']"
           class="uk-button uk-button-default"
           >Entrar
-          </button>
+          </a>
         </div>
       </div>
     </form>
@@ -56,13 +57,14 @@
       class="uk-text-center"
     >
       <a
+        [routerLink]="['/signup']"
         class="uk-button uk-width-1-1 uk-button-large uk-button-primary uk-margin-small-bottom"
-      >Quero me
-        Cadastrar
+      >Quero me Cadastrar
       </a>
       <br>
       <a
-      class="uk-button uk-button-link"
+        [routerLink]="['/reset-password']"
+        class="uk-button uk-button-link"
       >Esqueci minha senha
       </a>
     </p>
