@@ -6,6 +6,7 @@
   >
     <div
       class="uk-width-1-2 uk-margin-small-bottom"
+      *ngFor="let product of products$ | async"
     >
 
       <div
@@ -17,7 +18,7 @@
           class="uk-card-media-left uk-cover-container"
         >
           <img
-            src="https://via.placeholder.com/200.png"
+            src="{{ product.images[0] }}"
             alt=""
             uk-cover
           >
@@ -27,12 +28,12 @@
           >
             <h3
               class="uk-card-title"
-            >R$ 79,90
+            >{{ product.price }}
             </h3>
             <p
               style="height: 50px;"
             >
-            Shampoo para pelos macios
+            {{ product.title }}
             </p>
             <button
               class="uk-button uk-button-default"

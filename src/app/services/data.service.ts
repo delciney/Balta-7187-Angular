@@ -10,7 +10,7 @@ export class DataService {
   constructor(private http: HttpClient) {}
 
   getProducts() {
-    return this.http.get<any[]>(`localhost:3000/v1/products/products`);
+    return this.http.get<any[]>(`localhost:3000/v1/products`);
   }
 
 }
