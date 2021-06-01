@@ -17,7 +17,7 @@ export class DataService {
   }
 
   authenticate(data: any) {
-    return this.http.get<Product[]>(`${this.url}v1/accounts/authenticate`, data);
+    return this.http.post<Product[]>(`${this.url}v1/accounts/authenticate`, data);
   }
-  
+
 }

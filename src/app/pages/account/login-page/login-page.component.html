@@ -28,6 +28,8 @@
           <input
             class="uk-input uk-form-large"
             formControlName="username"
+            maxlength="11"
+            minlength="11"
             type="text"
             placeholder="CPF"
             [ngClass]="{'uk-form-danger': (!form.controls.username.valid && !form.controls.username.pristine) }"
@@ -39,6 +41,8 @@
           <input
             class="uk-input uk-form-large"
             formControlName="password"
+            maxlength="20"
+            minlength="6"
             type="password"
             placeholder="Senha"
           >
@@ -48,6 +52,7 @@
         >
           <button
           [disabled]="form.invalid"
+          (click)="submit()"
           class="uk-button uk-button-default"
           >Entrar
           </button>

@@ -18,8 +18,8 @@ export class LoginPageComponent implements OnInit {
       username:[
         '',
         Validators.compose([
-          Validators.minLength(14),
-          Validators.maxLength(14),
+          Validators.minLength(11),
+          Validators.maxLength(11),
           Validators.required,
         ])
       ],
@@ -34,7 +34,22 @@ export class LoginPageComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  submit(){
+    this
+      .service
+      .authenticate(this.form.value)
+      .subscribe(
+        (data: any) => {
+          console.log(data)
+          localStorage.setItem('petshop.token', data.token);
+        },
+        (error: any) =>{
+          console.log(error)
+        }
+      );
+
   }
 
 }
