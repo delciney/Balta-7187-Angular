@@ -31,10 +31,9 @@
           <input
             class="uk-input uk-form-large"
             formControlName="username"
-            maxlength="11"
-            minlength="11"
             type="text"
             placeholder="CPF"
+            mask="###.###.###-##"
             [ngClass]="{'uk-form-danger': (!form.controls.username.valid && !form.controls.username.pristine) }"
           >
         </div>

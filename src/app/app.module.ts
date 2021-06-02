@@ -1,3 +1,4 @@
+import { MaskDirective } from './directives/mask.directive';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -30,7 +31,8 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     CartPageComponent,
     FramePageComponent,
     ProductCardComponent,
-    LoadingComponent
+    LoadingComponent,
+    MaskDirective
   ],
   imports: [
     BrowserModule,
