@@ -26,6 +26,10 @@ export class DataService {
     return this.http.post<Product[]>(`${this.url}v1/accounts/authenticate`, data);
   }
 
+  create(data: any) {
+    return this.http.post(`${this.url}v1/accounts`, data);
+  }
+
   refreshToken() {
     return this
             .http

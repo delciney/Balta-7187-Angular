@@ -13,7 +13,10 @@
       >
       </span>
     </p>
-    <form>
+
+    <app-loading *ngIf="busy"></app-loading>
+
+    <form [formGroup]="form" *ngIf="!busy">
       <div
         class="uk-card uk-card-primary uk-card-body uk-box-shadow-small"
       >
@@ -64,6 +67,7 @@
           class="uk-margin uk-text-right"
         >
           <button
+            (click)="submit()"
             class="uk-button uk-button-default"
           >Cadastrar
           </button>
@@ -73,6 +77,7 @@
 
     <p
       class="uk-text-center"
+      *ngIf="!busy"
     >
       <a
         [routerLink]="['/login']"
