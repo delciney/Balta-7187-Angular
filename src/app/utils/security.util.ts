@@ -17,21 +17,21 @@ export class Security {
         localStorage.setItem('petshoptoken', token);
     }
 
-    public static getUser(): User | null {
+    public static getUser(): User  {
         const data = localStorage.getItem('petshopuser');
         if (data) {
             return JSON.parse(atob(data));
         } else {
-            return null;
+            throw new Error("User not found");
         }
     }
 
-    public static getToken(): string | null {
+    public static getToken(): string {
         const data = localStorage.getItem('petshoptoken');
         if (data) {
             return data;
         } else {
-            return null;
+          throw new Error("Token not found");
         }
     }
 
