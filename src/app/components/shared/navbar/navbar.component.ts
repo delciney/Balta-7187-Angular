@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Security } from 'src/app/utils/security.util';
 
@@ -7,12 +8,19 @@ import { Security } from 'src/app/utils/security.util';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   public user: any;
 
   ngOnInit(): void {
     this.user = Security.getUser();
+  }
+
+  logout(){
+    Security.clear();
+    this.router.navigate(['/login']);
   }
 
 }
