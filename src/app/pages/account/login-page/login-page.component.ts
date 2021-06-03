@@ -49,12 +49,10 @@ export class LoginPageComponent implements OnInit {
         .refreshToken()
         .subscribe(
           (data: any) => {
-            console.log(data);
             this.setUser(data.customer, data.token);
             this.busy = false;
           },
           (err) => {
-            console.warn(err);
             localStorage.clear();
             this.busy = false;
           }
