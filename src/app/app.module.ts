@@ -6,6 +6,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { routes } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
@@ -45,6 +47,8 @@ import { ProfilePageComponent } from './pages/account/profile-page/profile-page.
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot(),
   ],
   providers: [DataService, AuthService],
   bootstrap: [AppComponent]
