@@ -24,8 +24,9 @@ export const routes: Routes = [
   {
     path: 'account',
     component: FramePageComponent,
+    canActivate: [AuthService],
     children: [
-      { path: '', component: ProfilePageComponent },
+      { path: 'profile', component: ProfilePageComponent },
       { path: 'pets', component: PetsPageComponent },
     ]
   },
