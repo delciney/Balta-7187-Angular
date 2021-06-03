@@ -1,5 +1,6 @@
 <div
   class="uk-container"
+  *ngIf="cart.items.length > 0"
 >
   <nav
     class="uk-navbar-container"
@@ -27,7 +28,9 @@
         <li
           class="uk-active"
         >
-          <a>
+          <a
+            (click)="clear()"
+          >
             <span
               class="uk-icon uk-margin-small-right"
               uk-icon="icon: close"
@@ -44,6 +47,7 @@
   <div
     class="uk-grid-small"
     uk-grid
+    *ngFor="let item of cart?.items"
   >
     <div
       class="uk-width-expand"
@@ -58,14 +62,15 @@
       >
       <a
         href="#"
-      >Shampoo para pelos macios</a> <br>
-      <strong>2 unidade(s)</strong>
+      >{{ item.product }}</a> <br>
+      <strong>{{ item.quantity }} unidade(s)</strong>
     </div>
     <div>
       <br>
-      R$20,90
+      {{ item.price/100 | currency: 'BRL' }}
       <a
         class="uk-button uk-button-link uk-align-right"
+        (click)="remove(item)"
       >
         <span
           class="uk-icon"
@@ -84,7 +89,7 @@
     <h3
       class="uk-text-right"
     >
-      R$41,80
+    R$384.88
     </h3>
     <a
       href="/checkout"
@@ -93,18 +98,4 @@
       FINALIZAR COMPRA
     </a>
   </div>
-</div>
-
-<div
-  class="uk-container"
->
-  <br>
-  <br>
-  <br>
-  <p
-    class="uk-text-center"
-  ><em>Seu carrinho está vazio</em></p>
-  <br>
-  <br>
-  <br>
 </div>
