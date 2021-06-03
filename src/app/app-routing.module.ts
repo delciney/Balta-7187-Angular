@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { LoginPageComponent } from './pages/account/login-page/login-page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -7,7 +8,8 @@ import { CartPageComponent } from './pages/store/cart-page/cart-page.component';
 import { PetsPageComponent } from './pages/account/pets-page/pets-page.component';
 import { SignupPageComponent } from './pages/account/signup-page/signup-page.component';
 import { ResetPasswordPageComponent } from './pages/account/reset-password-page/reset-password-page.component';
-
+import { CheckoutPageComponent } from './pages/store/checkout-page/checkout-page.component';
+import { ProfilePageComponent } from './pages/account/profile-page/profile-page.component';
 
 export const routes: Routes = [
   {
@@ -15,13 +17,15 @@ export const routes: Routes = [
     component: FramePageComponent,
     children: [
       { path: '', component: ProductsPageComponent },
-      { path: 'cart', component: CartPageComponent },
+      { path: 'cart', component: CartPageComponent, canActivate: [AuthService] },
+      { path: 'checkout', component: CheckoutPageComponent, canActivate: [AuthService] }
     ]
   },
   {
     path: 'account',
     component: FramePageComponent,
     children: [
+      { path: '', component: ProfilePageComponent },
       { path: 'pets', component: PetsPageComponent },
     ]
   },

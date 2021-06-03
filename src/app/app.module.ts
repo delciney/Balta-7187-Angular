@@ -1,3 +1,5 @@
+import { AuthService } from './services/auth.service';
+import { DataService } from 'src/app/services/data.service';
 import { MaskDirective } from './directives/mask.directive';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,6 +19,8 @@ import { ProductsPageComponent } from './pages/store/products-page/products-page
 import { ProductCardComponent } from './components/store/product-card/product-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoadingComponent } from './components/shared/loading/loading.component';
+import { CheckoutPageComponent } from './pages/store/checkout-page/checkout-page.component';
+import { ProfilePageComponent } from './pages/account/profile-page/profile-page.component';
 
 
 @NgModule({
@@ -32,7 +36,9 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     FramePageComponent,
     ProductCardComponent,
     LoadingComponent,
-    MaskDirective
+    MaskDirective,
+    CheckoutPageComponent,
+    ProfilePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +46,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     HttpClientModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [],
+  providers: [DataService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
